@@ -1,0 +1,3 @@
+server:
+ port: ${PORT:8085}
+ servlet-path: /swagger
