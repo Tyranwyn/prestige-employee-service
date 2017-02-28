@@ -6,6 +6,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
@@ -16,7 +17,7 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @EnableEurekaClient
 @SpringBootApplication
 @EnableSwagger2
-@ComponentScan("roflcopter")
+@ComponentScan("be.ordina.prestige")
 public class PrestigeEmployeeServiceApplication {
 
 	public static void main(String[] args) {
@@ -26,10 +27,10 @@ public class PrestigeEmployeeServiceApplication {
 	@Bean
 	public Docket newsApi() {
 		return new Docket(DocumentationType.SWAGGER_2)
-				.groupName("grtz")
+				.groupName("grtzDocs")
 				.apiInfo(apiInfo())
 				.select()
-				.paths(regex("/grtz.*"))
+				.paths(PathSelectors.any())
 				.build();
 	}
 
